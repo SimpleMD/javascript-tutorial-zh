@@ -1,6 +1,6 @@
 # Arrays 
 
-Objects allow to store keyed collections of values. That's fine.
+Objects allow you to store keyed collections of values. That's fine.
 
 But quite often we find that we need an *ordered collection*, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc. 
 
@@ -104,7 +104,7 @@ A [queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type)) is one of mo
 
 Arrays support both operations.
 
-In practice we meet it very often. For example, a queue of messages that need to be shown on-screen.
+In practice we need it very often. For example, a queue of messages that need to be shown on-screen.
 
 There's another use case for arrays -- the data structure named [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)). 
 
@@ -121,7 +121,7 @@ A stack is usually illustrated as a pack of cards: new cards are added to the to
 
 For stacks, the latest pushed item is received first, that's also called LIFO (Last-In-First-Out) principle. For queues, we have FIFO (First-In-First-Out).
 
-Arrays in JavaScript can work both as a queue and as a stack. They allow to add/remove elements both to/from the beginning or the end. 
+Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements both to/from the beginning or the end. 
 
 In computer science the data structure that allows it is called [deque](https://en.wikipedia.org/wiki/Double-ended_queue).
 
@@ -320,7 +320,7 @@ But that's actually a bad idea. There are potential problems with it:
 
     There are so-called "array-like" objects in the browser and in other environments, that *look like arrays*. That is, they have `length` and indexes properties, but they may also have other non-numeric properties and methods, which we usually don't need. The `for..in` loop will list them though. So if we need to work with array-like objects, then these "extra" properties can become a problem.
 
-2. The `for..in` loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. Of course, it's still very fast. The speedup may matter only in bottlenecks or just irrelevant. But still we should be aware of the difference.
+2. The `for..in` loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. Of course, it's still very fast. The speedup may only matter in bottlenecks or seem irrelevant. But still we should be aware of the difference.
 
 Generally, we shouldn't use `for..in` for arrays.
 
@@ -369,7 +369,7 @@ It's rarely used, because square brackets `[]` are shorter. Also there's a trick
 
 If `new Array` is called with a single argument which is a number, then it creates an array *without items, but with the given length*.
 
-Let's see how one can shoot himself in the foot:
+Let's see how one can shoot themself in the foot:
 
 ```js run
 let arr = new Array(2); // will it create an array of [2] ?
@@ -431,7 +431,7 @@ alert( "1,2" + 1 ); // "1,21"
 
 ## Summary
 
-Array is a special kind of objects, suited to store and manage ordered data items.
+Array is a special kind of object, suited to storing and managing ordered data items.
 
 - The declaration:
 

@@ -62,7 +62,7 @@ showName("Julius", "Caesar", "Consul", "Imperator");
 ```
 
 ````warn header="The rest parameters must be at the end"
-The rest parameters gather all remaining arguments, so the following has no sense:
+The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:
 
 ```js
 function f(arg1, ...rest, arg2) { // arg2 after ...rest ?!
@@ -119,6 +119,8 @@ function f() {
 
 f(1); // 1
 ```
+````
+
 As we remember, arrow functions don't have their own `this`. Now we know they don't have the special `arguments` object either.
 
 ## Spread operator [#spread-operator]
@@ -135,7 +137,7 @@ alert( Math.max(3, 5, 1) ); // 5
 
 Now let's say we have an array `[3, 5, 1]`. How do we call `Math.max` with it?
 
-Passing it "as it" won't work, because `Math.max` expects a list of numeric arguments, not a single array:
+Passing it "as is" won't work, because `Math.max` expects a list of numeric arguments, not a single array:
 
 ```js run
 let arr = [3, 5, 1];
@@ -145,7 +147,7 @@ alert( Math.max(arr) ); // NaN
 */!*
 ```
 
-And surely we can't manually list items in the code `Math.max(arg[0], arg[1], arg[2])`, because we may be unsure how many there are. As our script executes, there could be a lot, or there could be none. And that would get ugly.
+And surely we can't manually list items in the code `Math.max(arr[0], arr[1], arr[2])`, because we may be unsure how many there are. As our script executes, there could be a lot, or there could be none. And that would get ugly.
 
 *Spread operator* to the rescue! It looks similar to rest parameters, also using `...`, but does quite the opposite.
 

@@ -132,7 +132,7 @@ Note that `\n` is a single "special" character, so the length is indeed `3`.
 ```warn header="`length` is a property"
 People with a background in some other languages sometimes mistype by calling `str.length()` instead of just `str.length`. That doesn't work.
 
-Please note that `str.length` is a numeric property, not a function. There is no need to add brackets after it.
+Please note that `str.length` is a numeric property, not a function. There is no need to add parenthesis after it.
 ```
 
 ## Accessing characters
@@ -275,8 +275,8 @@ while ((pos = str.indexOf(target, pos + 1)) != -1) {
 */!*
 ```
 
-```smart header="`str.lastIndexOf(pos)`"
-There is also a similar method [str.lastIndexOf(pos)](mdn:js/String/lastIndexOf) that searches from the end of a string to its beginning.
+```smart header="`str.lastIndexOf(substr, position)`"
+There is also a similar method [str.lastIndexOf(substr, position)](mdn:js/String/lastIndexOf) that searches from the end of a string to its beginning.
 
 It would list the occurrences in the reverse order.
 ```
@@ -451,7 +451,7 @@ Let's recap these methods to avoid any confusion:
 ```smart header="Which one to choose?"
 All of them can do the job. Formally, `substr` has a minor drawback: it is described not in the core JavaScript specification, but in Annex B, which covers browser-only features that exist mainly for historical reasons. So, non-browser environments may fail to support it. But in practice it works everywhere.
 
-The author finds himself using `slice` almost all the time.
+The author finds themself using `slice` almost all the time.
 ```
 
 ## Comparing strings

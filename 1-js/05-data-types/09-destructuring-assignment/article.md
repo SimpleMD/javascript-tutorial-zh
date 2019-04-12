@@ -31,8 +31,8 @@ It looks great when combined with `split` or other array-returning methods:
 let [firstName, surname] = "Ilya Kantor".split(' ');
 ```
 
-````smart header="\"Destructuring\" does not mean \"destructive\""
-It's called "destructuring assignment", because it "destructurizes" by copying items into variables. But the array itself is not modified.
+````smart header="\"Destructuring\" does not mean \"destructive\"."
+It's called "destructuring assignment," because it "destructurizes" by copying items into variables. But the array itself is not modified.
 
 It's just a shorter way to write:
 ```js
@@ -42,19 +42,19 @@ let surname = arr[1];
 ```
 ````
 
-````smart header="Ignore first elements"
+````smart header="Ignore elements using commas"
 Unwanted elements of the array can also be thrown away via an extra comma:
 
 ```js run
 *!*
-// first and second elements are not needed
-let [, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+// second element is not needed
+let [firstName, , title] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
 */!*
 
 alert( title ); // Consul
 ```
 
-In the code above, although the first and second elements of the array are skipped, the third one is assigned to `title`, and the rest are also skipped.
+In the code above, the second element of the array is skipped, the third one is assigned to `title`, and the rest of the array is also skipped.
 ````
 
 ````smart header="Works with any iterable on the right-side"
@@ -128,6 +128,7 @@ alert(name1); // Julius
 alert(name2); // Caesar
 
 *!*
+// Note that type of `rest` is Array.
 alert(rest[0]); // Consul
 alert(rest[1]); // of the Roman Republic
 alert(rest.length); // 2
@@ -146,6 +147,7 @@ let [firstName, surname] = [];
 */!*
 
 alert(firstName); // undefined
+alert(surname); // undefined
 ```
 
 If we want a "default" value to replace the missing one, we can provide it using `=`:
@@ -335,7 +337,7 @@ The problem is that JavaScript treats `{...}` in the main code flow (not inside 
 }
 ```
 
-To show JavaScript that it's not a code block, we can wrap the whole assignment in brackets `(...)`:
+To show JavaScript that it's not a code block, we can wrap the whole assignment in parentheses `(...)`:
 
 ```js run
 let title, width, height;
@@ -383,6 +385,8 @@ alert(item2);  // Donut
 
 The whole `options` object except `extra` that was not mentioned, is assigned to corresponding variables.
 
+Note that `size` and `items` itself is not destructured.
+
 ![](destructuring-complex.png)
 
 Finally, we have `width`, `height`, `item1`, `item2` and `title` from the default value.
@@ -407,7 +411,7 @@ function showMenu(title = "Untitled", width = 200, height = 100, items = []) {
 }
 ```
 
-In real-life the problem is how to remember the order of arguments. Usually IDEs try to help us, especially if the code is well-documented, but still... Another problem is how to call a function when most parameters are ok by default.
+In real-life, the problem is how to remember the order of arguments. Usually IDEs try to help us, especially if the code is well-documented, but still... Another problem is how to call a function when most parameters are ok by default.
 
 Like this?
 
@@ -502,7 +506,7 @@ In the code above, the whole arguments object is `{}` by default, so there's alw
     let {prop : varName = default, ...} = object
     ```
 
-    This means that property `prop` should go into the variable `varName` and, if no such property exists, then `default` value should be used.
+    This means that property `prop` should go into the variable `varName` and, if no such property exists, then the `default` value should be used.
 
 - The array syntax:
 
@@ -510,6 +514,6 @@ In the code above, the whole arguments object is `{}` by default, so there's alw
     let [item1 = default, item2, ...rest] = array
     ```
 
-    The first item goes to `item1`, the second goes into `item2`, all the rest makes the array `rest`.
+    The first item goes to `item1`; the second goes into `item2`, all the rest makes the array `rest`.
 
 - For more complex cases, the left side must have the same structure as the right one.

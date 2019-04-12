@@ -214,7 +214,7 @@ sayHi(); // undefined
 
 In this case `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error.
 
-In non-strict mode (if one forgets `use strict`) the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later). This is a historical behavior that `"use strict"` fixes.
+In non-strict mode the value of `this` in such case will be the *global object* (`window` in a browser, we'll get to it later in the chapter [](info:global-object)). This is a historical behavior that `"use strict"` fixes.
 
 Please note that usually a call of a function that uses `this` without an object is not normal, but rather a programming mistake. If a function has `this`, then it is usually meant to be called in the context of an object.
 
@@ -257,7 +257,7 @@ On the last line there is a ternary operator that chooses either `user.hi` or `u
 
 The method is immediately called with parentheses `()`. But it doesn't work right!
 
-You can see that the call results in an error, cause the value of `"this"` inside the call becomes `undefined`.
+You can see that the call results in an error, because the value of `"this"` inside the call becomes `undefined`.
 
 This works (object dot method):
 ```js
@@ -276,7 +276,7 @@ Looking closely, we may notice two operations in `obj.method()` statement:
 1. First, the dot `'.'` retrieves the property `obj.method`.
 2. Then parentheses `()` execute it.
 
-So, how does the information about `this` gets passed from the first part to the second one?
+So, how does the information about `this` get passed from the first part to the second one?
 
 If we put these operations on separate lines, then `this` will be lost for sure:
 
@@ -312,11 +312,11 @@ The result of a property access `user.hi` is not a function, but a value of Refe
 (user, "hi", true)
 ```
 
-When parentheses `()` are called on the Reference Type, they receive the full information about the object and it's method, and can set the right `this` (`=user` in this case).
+When parentheses `()` are called on the Reference Type, they receive the full information about the object and its method, and can set the right `this` (`=user` in this case).
 
 Any other operation like assignment `hi = user.hi` discards the reference type as a whole, takes the value of `user.hi` (a function) and passes it on. So any further operation "loses" `this`.
 
-So, as the result, the value of `this` is only passed the right way if the function is called directly using a dot `obj.method()` or square brackets `obj[method]()` syntax (they do the same here).
+So, as the result, the value of `this` is only passed the right way if the function is called directly using a dot `obj.method()` or square brackets `obj['method']()` syntax (they do the same here). Later in this tutorial, we will learn various ways to solve this problem such as [func.bind()](/bind#solution-2-bind).
 
 ## Arrow functions have no "this"
 

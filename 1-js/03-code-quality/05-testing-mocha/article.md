@@ -96,7 +96,7 @@ The full HTML page with these frameworks and `pow` spec:
 ```html src="index.html"
 ```
 
-The page can be divided into four parts:
+The page can be divided into five parts:
 
 1. The `<head>` -- add third-party libraries and styles for tests.
 2. The `<script>` with the function to test, in our case -- with the code for `pow`.
@@ -233,7 +233,7 @@ Grouping is done with a nested `describe`:
 describe("pow", function() {
 
 *!*
-  describe("raises x to power n", function() {
+  describe("raises x to power 3", function() {
 */!*
 
     function makeTest(x) {
@@ -296,7 +296,7 @@ Testing finished – after all tests (after)
 
 [edit src="beforeafter" title="Open the example in the sandbox."]
 
-Usually, `beforeEach/afterEach` (`before/each`) are used to perform initialization, zero out counters or do something else between the tests (or test groups).
+Usually, `beforeEach/afterEach` (`before/after`) are used to perform initialization, zero out counters or do something else between the tests (or test groups).
 ````
 
 ## Extending the spec

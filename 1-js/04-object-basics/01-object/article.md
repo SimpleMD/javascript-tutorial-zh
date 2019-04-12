@@ -1,7 +1,7 @@
 
 # Objects
 
-As we know from the chapter <info:types>, there are seven language types in JavaScript. Six of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
+As we know from the chapter <info:types>, there are seven data types in JavaScript. Six of them are called "primitive", because their values contain only a single thing (be it a string or a number or whatever).
 
 In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
 
@@ -205,7 +205,7 @@ let obj = {
   for: 1,
   let: 2,
   return: 3
-}
+};
 
 alert( obj.for + obj.let + obj.return );  // 6
 ```
@@ -220,11 +220,11 @@ alert(obj.__proto__); // [object Object], didn't work as intended
 
 As we see from the code, the assignment to a primitive `5` is ignored.
 
-That can become a source of bugs and even vulnerabilies if we intent to store arbitrary key-value pairs in an object, and allow a visitor to specify the keys.
+That can become a source of bugs and even vulnerabilities if we intend to store arbitrary key-value pairs in an object, and allow a visitor to specify the keys.
 
 In that case the visitor may choose "__proto__" as the key, and the assignment logic will be ruined (as shown above).
 
-There is a way to make objects treat `__proto__` as a regular property, which we'll cover later, but first we need to know more about objects. 
+There is a way to make objects treat `__proto__` as a regular property, which we'll cover later, but first we need to know more about objects.
 There's also another data structure [Map](info:map-set-weakmap-weakset), that we'll learn in the chapter <info:map-set-weakmap-weakset>, which supports arbitrary keys.
 ````
 
@@ -301,7 +301,7 @@ alert( "blabla" in user ); // false, user.blabla doesn't exist
 
 Please note that on the left side of `in` there must be a *property name*. That's usually a quoted string.
 
-If we omit quotes, that would mean a variable containing the actual name to be tested. For instance:
+If we omit quotes, that would mean a variable containing the actual name will be tested. For instance:
 
 ```js run
 let user = { age: 30 };
@@ -339,7 +339,7 @@ To walk over all keys of an object, there exists a special form of the loop: `fo
 The syntax:
 
 ```js
-for(key in object) {
+for (key in object) {
   // executes the body for each key among object properties
 }
 ```
@@ -353,7 +353,7 @@ let user = {
   isAdmin: true
 };
 
-for(let key in user) {
+for (let key in user) {
   // keys
   alert( key );  // name, age, isAdmin
   // values for the keys
@@ -363,7 +363,7 @@ for(let key in user) {
 
 Note that all "for" constructs allow us to declare the looping variable inside the loop, like `let key` here.
 
-Also, we could use another variable name here instead of `key`. For instance, `"for(let prop in obj)"` is also widely used.
+Also, we could use another variable name here instead of `key`. For instance, `"for (let prop in obj)"` is also widely used.
 
 
 ### Ordered like an object
@@ -384,7 +384,7 @@ let codes = {
 };
 
 *!*
-for(let code in codes) {
+for (let code in codes) {
   alert(code); // 1, 41, 44, 49
 }
 */!*
@@ -442,7 +442,7 @@ let codes = {
   "+1": "USA"
 };
 
-for(let code in codes) {
+for (let code in codes) {
   alert( +code ); // 49, 41, 44, 1
 }
 ```
@@ -605,7 +605,7 @@ for (let key in user) {
 }
 */!*
 
-// now clone is a fully independant clone
+// now clone is a fully independent clone
 clone.name = "Pete"; // changed the data in it
 
 alert( user.name ); // still John in the original object
@@ -616,7 +616,7 @@ Also we can use the method [Object.assign](mdn:js/Object/assign) for that.
 The syntax is:
 
 ```js
-Object.assign(dest[, src1, src2, src3...])
+Object.assign(dest, [src1, src2, src3...])
 ```
 
 - Arguments `dest`, and `src1, ..., srcN` (can be as many as needed) are objects.
@@ -701,7 +701,7 @@ alert(clone.sizes.width); // 51, see the result from the other one
 
 To fix that, we should use the cloning loop that examines each value of `user[key]` and, if it's an object, then replicate its structure as well. That is called a "deep cloning".
 
-There's a standard algorithm for deep cloning that handles the case above and more complex cases, called the [Structured cloning algorithm](https://w3c.github.io/html/infrastructure.html#internal-structured-cloning-algorithm). In order not to reinvent the wheel, we can use a working implementation of it from the JavaScript library [lodash](https://lodash.com), the method is called [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
+There's a standard algorithm for deep cloning that handles the case above and more complex cases, called the [Structured cloning algorithm](http://w3c.github.io/html/infrastructure.html#safe-passing-of-structured-data). In order not to reinvent the wheel, we can use a working implementation of it from the JavaScript library [lodash](https://lodash.com), the method is called [_.cloneDeep(obj)](https://lodash.com/docs#cloneDeep).
 
 
 
@@ -720,7 +720,7 @@ To access a property, we can use:
 Additional operators:
 - To delete a property: `delete obj.prop`.
 - To check if a property with the given key exists: `"key" in obj`.
-- To iterate over an object: `for(let key in obj)` loop.
+- To iterate over an object: `for (let key in obj)` loop.
 
 Objects are assigned and copied by reference. In other words, a variable stores not the "object value", but a "reference" (address in memory) for the value. So copying such a variable or passing it as a function argument copies that reference, not the object. All operations via copied references (like adding/removing properties) are performed on the same single object.
 

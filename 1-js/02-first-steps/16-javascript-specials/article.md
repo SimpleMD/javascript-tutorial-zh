@@ -102,8 +102,8 @@ More in: <info:variables> and <info:types>.
 
 We're using a browser as a working environment, so basic UI functions will be:
 
-[`prompt(question[, default])`](mdn:api/Window/prompt)
-: Ask a `question`, and return either what the visitor entered or `null` if he pressed "cancel".
+[`prompt(question, [default])`](mdn:api/Window/prompt)
+: Ask a `question`, and return either what the visitor entered or `null` if they pressed "cancel".
 
 [`confirm(question)`](mdn:api/Window/confirm)
 : Ask a `question` and suggest to choose between Ok and Cancel. The choice is returned as `true/false`.
@@ -111,7 +111,7 @@ We're using a browser as a working environment, so basic UI functions will be:
 [`alert(message)`](mdn:api/Window/alert)
 : Output a `message`.
 
-All these functions are *modal*, they pause the code execution and prevent the visitor from interacting with the page until he answers.
+All these functions are *modal*, they pause the code execution and prevent the visitor from interacting with the page until they answer.
 
 For instance:
 
@@ -149,7 +149,7 @@ Ternary
 : The only operator with three parameters: `cond ? resultA : resultB`. If `cond` is truthy, returns `resultA`, otherwise `resultB`.
 
 Logical operators
-: Logical AND `&&` and OR `||` perform short-circuit evaluation and then return the value where it stopped.
+: Logical AND `&&` and OR `||` perform short-circuit evaluation and then return the value where it stopped. Logical NOT `!` converts the operand to boolean type and returns the inverse value.
 
 Comparisons
 : Equality check `==` for values of different types converts them to a number (except `null` and `undefined` that equal each other and nothing else), so these are equal:
@@ -167,7 +167,7 @@ Comparisons
 
     Greater/less comparisons compare strings character-by-character, other types are converted to a number.
 
-Logical operators
+Other operators
 : There are few others, like a comma operator.
 
 More in: <info:operators>, <info:comparison>, <info:logical-operators>.
